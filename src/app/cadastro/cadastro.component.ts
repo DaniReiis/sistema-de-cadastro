@@ -1,11 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, importProvidersFrom } from '@angular/core';
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {MatCardModule} from '@angular/material/card';
+import {FormsModule} from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import { Cliente } from './cliente';
+ 
 
 @Component({
   selector: 'app-cadastro',
-  imports: [],
+  imports: [FlexLayoutModule,
+     MatCardModule, 
+     FormsModule, 
+     MatFormFieldModule, 
+     MatInputModule,
+    MatButtonModule,
+    MatIconModule,
+    ],
   templateUrl: './cadastro.component.html',
   styleUrl: './cadastro.component.scss'
 })
 export class CadastroComponent {
+
+  cliente: Cliente = Cliente.newCliente();
+
+  cadastraCliente(){
+    console.log(this.cliente);
+  }
+
+  limparCliente(form: any){
+    this.cliente = Cliente.newCliente();
+    form.resetForm();
+  }
 
 }

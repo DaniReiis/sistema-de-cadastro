@@ -1,1 +1,43 @@
-<p>cadastro works!</p>
+<div fxLayout="row" fxLayoutAlign="center">
+<div fxLayout="column" fxFlex="1000px">
+    <form action="" class="mt-60" #clientesFrm="ngForm" (ngSubmit) = "cadastraCliente()">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    Dados pessoais
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="mt-20">
+                <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="16px">
+                    <mat-form-field class="full-width">
+                        <mat-label>Nome: *</mat-label>
+                        <input type="text" name="nome" placeholder="Ex: Daniel" [(ngModel)]="cliente.nome" matInput>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="16px">
+                    <mat-form-field class="full-width">
+                         <mat-label>Email: *</mat-label>
+                        <input type="email" name="email" placeholder="Ex: daniel@ig.com" [(ngModel)]="cliente.email" matInput>
+                    </mat-form-field>
+                </div>
+                <div fxLayout="row" fxLayoutAlign="start" fxLayoutGap="16px">
+                    <mat-form-field class="full-width">
+                         <mat-label>CPF: *</mat-label>
+                        <input type="string" name="cpf" placeholder="Ex: 123.456.789-0" [(ngModel)]="cliente.cpf" matInput>
+                    </mat-form-field>
+                    <mat-form-field class="full-width">
+                         <mat-label>Data de aniversario: *</mat-label>
+                        <input type="date" name="dataAniver" placeholder="Ex: 123.456.789-0" [(ngModel)]="cliente.dataAniver" matInput>
+                    </mat-form-field>
+                </div>
+
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-raised-button color="primary" type="submit"><mat-icon fontIcon="save"></mat-icon> Salvar</button>
+                <button mat-raised-button><mat-icon fontIcon="refresh"></mat-icon> Atualizar</button>
+                <button mat-raised-button color="accent" class="ml-15" (click)="limparCliente(clientesFrm)"><mat-icon fontIcon="backspace"></mat-icon> Limpar</button>
+            </mat-card-actions>
+        </mat-card>
+    </form>
+</div>
+</div>

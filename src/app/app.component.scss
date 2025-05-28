@@ -1,7 +1,4 @@
 .tollbar{
-    box-shadow: 0px 8px 15px -1px rgba(0,0,0,0.41);
-    -webkit-box-shadow: 0px 8px 15px -1px rgba(0,0,0,0.41);
-    -moz-box-shadow: 0px 8px 15px -1px rgba(0,0,0,0.41);
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -11,14 +8,16 @@
     a{
         margin: 15px;
         text-decoration: none;
-        color: black;
-        transition: .2s;
-        padding: 7px;
+        color: rgb(255, 255, 255);
+        transition: .5s;
+        padding: 10px 20px;
+        border-radius: 20px;
 
         &:hover{
-            background: #0058ff;
-            border-radius: 20px;
-            color: white;
+            background: #ff0004e8;
+            
+            color: rgb(255, 255, 255);
         }
     }
 }
+
