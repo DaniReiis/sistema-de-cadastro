@@ -27,16 +27,13 @@ export class CadastroComponent {
 
   cliente: Cliente = Cliente.newCliente();
 
- constructor(private service: ClienteService){
-
- }
+ constructor(private service: ClienteService){ }
 
   cadastraCliente(){
     this.service.salvar(this.cliente);
   }
 
   limparCliente(form: any){
-    this.cliente = Cliente.newCliente();
     form.resetForm();
   }
 
