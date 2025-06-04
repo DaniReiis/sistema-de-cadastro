@@ -10,27 +10,31 @@ export class ClienteService {
 
   constructor() { }
 
-  salvar(cliente: Cliente){
+  salvar(cliente: Cliente) {
     const storage = this.obterStorage();
     storage.push(cliente);
 
     localStorage.setItem(ClienteService.REPO_CLIENTE, JSON.stringify(storage))
   }
 
-  pesquisarCliente(nomeBusca: string) : Cliente[]{
+  pesquisarCliente(nomeBusca: string): Cliente[] {
     const clientes = this.obterStorage();
 
-    if(!nomeBusca){
+    if (!nomeBusca) {
       return clientes;
     }
 
-    return clientes.filter(cliente => cliente.nome?.indexOf(nomeBusca) !== -1)
+    const buscaNormalizada = nomeBusca.toLowerCase();
+
+    return clientes.filter(cliente =>
+      cliente.nome?.toLowerCase().includes(buscaNormalizada)
+    );
   }
 
-  obterStorage() : Cliente[]{
+  obterStorage(): Cliente[] {
     const repositorioCliente = localStorage.getItem(ClienteService.REPO_CLIENTE);
-    
-    if(repositorioCliente){
+
+    if (repositorioCliente) {
       const cliente: Cliente[] = JSON.parse(repositorioCliente);
       return cliente;
     }

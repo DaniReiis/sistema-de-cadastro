@@ -30,7 +30,9 @@ export class CadastroComponent {
  constructor(private service: ClienteService){ }
 
   cadastraCliente(){
+     const novoCliente = Cliente.newCliente(); // Novo cliente com novo UUID
     this.service.salvar(this.cliente);
+    this.cliente = Cliente.newCliente();
   }
 
   limparCliente(form: any){
